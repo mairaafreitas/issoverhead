@@ -19,13 +19,17 @@ def is_iss_overhead():
     iss_longitude = float(data["iss_position"]["longitude"])
 
     print(f"ISS Latitude: {iss_latitude}")
-    print(f"ISS Longitude: {iss_longitude}")
+    print(f"My Latitude: {MY_LAT}")
 
-    if MY_LAT - 5 <= iss_latitude >= MY_LAT + 5 and MY_LONG - 5 <= iss_longitude >= MY_LONG + 5:
+    print(f"ISS Longitude: {iss_longitude}")
+    print(f"My Longitude: {MY_LONG}")
+
+    if ((MY_LAT - 5) <= iss_latitude >= (MY_LAT + 5)) and ((MY_LONG - 5) <= iss_longitude >= (MY_LONG + 5)):
         print("Is over head!")
         return True
 
     print("Is not over head!")
+
 
 def is_night():
     parameters = {
