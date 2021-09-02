@@ -24,7 +24,7 @@ def is_iss_overhead():
     print(f"ISS Longitude: {iss_longitude}")
     print(f"My Longitude: {MY_LONG}")
 
-    if ((MY_LAT - 5) <= iss_latitude >= (MY_LAT + 5)) and ((MY_LONG - 5) <= iss_longitude >= (MY_LONG + 5)):
+    if ((MY_LAT - 5) <= iss_latitude <= (MY_LAT + 5)) and ((MY_LONG - 5) <= iss_longitude <= (MY_LONG + 5)):
         print("Is over head!")
         return True
 
