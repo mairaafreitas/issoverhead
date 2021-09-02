@@ -18,9 +18,14 @@ def is_iss_overhead():
     iss_latitude = float(data["iss_position"]["latitude"])
     iss_longitude = float(data["iss_position"]["longitude"])
 
+    print(f"ISS Latitude: {iss_latitude}")
+    print(f"ISS Longitude: {iss_longitude}")
+
     if MY_LAT - 5 <= iss_latitude >= MY_LAT + 5 and MY_LONG - 5 <= iss_longitude >= MY_LONG + 5:
+        print("Is over head!")
         return True
 
+    print("Is not over head!")
 
 def is_night():
     parameters = {
@@ -38,7 +43,10 @@ def is_night():
     time_now = datetime.now().hour
 
     if time_now <= sunrise or time_now >= sunset:
+        print("Is night!")
         return True
+
+    print("Is not night!")
 
 
 if is_iss_overhead() and is_night():
@@ -48,10 +56,7 @@ if is_iss_overhead() and is_night():
     connection.sendmail(
         from_addr=MY_EMAIL,
         to_addrs=MY_EMAIL,
-        msg="Subect: Look Up\n\nThe ISS is above you in the sky."
+        msg="Subject: Look Up\n\nThe ISS is above you in the sky."
     )
 
 exit(0)
-
-# Then send me an email to tell me to look up.
-# BONUS: run the code every 60 seconds.
