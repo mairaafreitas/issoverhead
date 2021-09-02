@@ -1,7 +1,6 @@
 import requests
 from datetime import datetime
 import smtplib
-import time
 import os
 
 MY_LAT = -21.045485
@@ -51,6 +50,8 @@ if is_iss_overhead() and is_night():
         to_addrs=MY_EMAIL,
         msg="Subect: Look Up\n\nThe ISS is above you in the sky."
     )
+
+exit(0)
 
 # Then send me an email to tell me to look up.
 # BONUS: run the code every 60 seconds.
